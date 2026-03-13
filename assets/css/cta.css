@@ -1,0 +1,115 @@
+/* ================= CTA ================= */
+
+.cta{
+background:linear-gradient(90deg,var(--azul),var(--azul-hover));
+color:var(--texto-claro);
+text-align:center;
+padding:80px 20px;
+border-radius:12px;
+margin:60px 0;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.cta-container{
+max-width:700px;
+margin:0 auto;
+}
+
+.cta-container h2{
+font-size:32px;
+margin-bottom:20px;
+font-weight:700;
+}
+
+.cta-subtitle{
+font-size:18px;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+/* LISTA */
+
+.cta-social-proof{
+list-style:none;
+padding:0;
+margin:0 auto 35px auto;
+max-width:340px;
+text-align:left;
+}
+
+.cta-social-proof li{
+position:relative;
+padding-left:28px;
+margin-bottom:12px;
+font-size:16px;
+color:var(--texto-claro);
+}
+
+/* círculo */
+
+.cta-social-proof li::before{
+content:"";
+position:absolute;
+left:0;
+top:50%;
+transform:translateY(-50%);
+width:16px;
+height:16px;
+background:var(--whatsapp);
+border-radius:50%;
+}
+
+/* check */
+
+.cta-social-proof li::after{
+content:"✔";
+position:absolute;
+left:3px;
+top:50%;
+transform:translateY(-50%);
+color:#fff;
+font-size:10px;
+}
+
+/* BOTÃO */
+
+.cta-btn{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+width:fit-content;
+margin:0 auto;
+background:var(--whatsapp-hover);
+color:var(--texto-claro);
+font-weight:600;
+padding:18px 36px;
+border-radius:8px;
+font-size:18px;
+text-decoration:none;
+transition:all .3s ease;
+}
+
+.cta-btn:hover{
+transform:scale(1.05);
+background:#1ebe5d;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.cta-container h2{
+font-size:26px;
+}
+
+.cta-subtitle{
+font-size:16px;
+}
+
+.cta-btn{
+font-size:16px;
+padding:14px 28px;
+}
+
+}

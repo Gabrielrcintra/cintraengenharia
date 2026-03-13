@@ -1,0 +1,14 @@
+/* ================= FOOTER ================= */
+
+.footer{
+
+background:var(--azul);
+color:white;
+
+text-align:center;
+
+padding:24px;
+
+font-size:14px;
+
+}

@@ -1,0 +1,54 @@
+.autoridade{
+
+background:var(--cinza-claro);
+
+padding:90px 20px;
+
+}
+
+.autoridade-container{
+
+max-width:1100px;
+margin:0 auto;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+gap:60px;
+
+flex-wrap:wrap;
+
+}
+
+.autoridade-item{
+
+flex:1 1 220px;
+max-width:260px;
+
+text-align:center;
+
+}
+
+.autoridade-item i{
+
+font-size:34px;
+color:var(--azul);
+
+margin-bottom:14px;
+
+display:block;
+
+}
+
+.autoridade-item p{
+
+font-size:17px;
+font-weight:500;
+
+color:var(--cinza-escuro);
+
+line-height:1.4;
+
+}

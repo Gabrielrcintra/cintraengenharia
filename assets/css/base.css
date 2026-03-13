@@ -1,0 +1,61 @@
+/* ================= RESET ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+section{
+scroll-margin-top:70px;
+}
+
+body{
+padding-top:88px;
+}
+
+/* ================= DESIGN SYSTEM ================= */
+
+:root{
+
+--azul:#0E2A3A;
+--azul-hover:#12384A;
+
+--branco:#ffffff;
+--preto:#333;
+
+--cinza-claro:#EDEDED;
+--cinza-medio:#CFCFCF;
+--cinza-escuro:#333333;
+
+--texto-principal:var(--azul);
+--texto-claro:var(--branco);
+--texto-preco:var(--preto);
+
+--overlay-hero:linear-gradient(
+to bottom,
+rgba(0,0,0,0.50) 0%,
+rgba(0,0,0,0.30) 50%,
+rgba(0,0,0,0.55) 100%
+);
+
+--amarelo-destaque:#FFD54F;
+
+--whatsapp:#25D366;
+--whatsapp-hover:#1ebe5d;
+
+}
+
+/* ================= ACESSIBILIDADE ================= */
+
+:focus-visible{
+
+outline:3px solid var(--amarelo-destaque);
+outline-offset:2px;
+
+}
