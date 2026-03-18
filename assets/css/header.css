@@ -113,6 +113,7 @@ display:flex;
 .brand img{
 
 height:150px; /* TAMANHO DA LOGO NO MOBILE */
+margin-right: 0;
 
 }
 
