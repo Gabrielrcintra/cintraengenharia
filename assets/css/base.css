@@ -59,3 +59,7 @@ outline:3px solid var(--amarelo-destaque);
 outline-offset:2px;
 
 }
+
+html {
+    scroll-behavior: smooth;
+}

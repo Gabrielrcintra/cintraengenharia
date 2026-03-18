@@ -1,273 +1,257 @@
 /* ================= SERVIÇOS ================= */
 
-.servico-bloco{
+.servico-bloco {
 
-padding:150px 20px;
-background:var(--branco);
+    position: relative; /* 🔥 ESSENCIAL para setas */
 
-border-radius:12px;
+    padding: 120px 20px;
+    background: var(--branco);
 
-margin-bottom:60px;
+    border-radius: 12px;
 
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 60px;
 
-transition:0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
+    transition: 0.3s;
+
+    min-height: 100vh; /* 🔥 garante altura pra centralizar */
+    
+    display: flex;
+    align-items: center;
 }
 
-.servico-bloco:hover{
-
-transform:translateY(-3px);
-
+.servico-bloco:hover {
+    transform: translateY(-3px);
 }
 
 
 /* ================= CONTAINER ================= */
 
-.servico-container{
+.servico-container {
 
-display:flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-flex-wrap:wrap;
+    gap: 40px;
 
-align-items:center;
-
-gap:10px;
-
-max-width:1200px;
-
-margin:auto;
-
+    max-width: 1200px;
+    margin: auto;
 }
 
 
 /* ================= TEXTO ================= */
 
-.servico-info{
-
-flex:1;
-
-min-width:280px;
-
+.servico-info {
+    flex: 1;
+    min-width: 300px;
 }
 
-.servico-info h2{
-
-font-size:32px;
-
-margin-bottom:18px;
-
-color:var(--azul);
-
+.servico-info h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+    color: var(--azul);
 }
 
-.servico-descricao{
-
-font-size:16px;
-
-line-height:1.7;
-
-margin-bottom:20px;
-
-color:var(--azul);
-
+.servico-descricao {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--azul);
 }
 
 
 /* ================= BENEFÍCIOS ================= */
 
-.servico-beneficios{
-
-margin:20px 0 25px;
-list-style:none;
-padding:0;
-
+.servico-beneficios {
+    margin: 20px 0 25px;
+    list-style: none;
+    padding: 0;
 }
 
-.servico-beneficios li{
+.servico-beneficios li {
+    position: relative;
+    display: flex;
+    align-items: center;
 
-position:relative;
+    font-size: 16px;
+    margin-bottom: 14px;
 
-display:flex;
-align-items:center;
+    color: #3a3a3a;
+    padding-left: 38px;
 
-font-size:16px;
-margin-bottom:14px;
-
-color:#3a3a3a;
-
-padding-left:38px;
-
-transition:0.25s;
-
+    transition: 0.25s;
 }
 
-/* círculo verde */
+.servico-beneficios li::before {
+    content: "";
+    position: absolute;
+    left: 0;
 
-.servico-beneficios li::before{
+    width: 22px;
+    height: 22px;
 
-content:"";
+    background: var(--whatsapp);
+    border-radius: 50%;
 
-position:absolute;
-left:0;
-
-width:22px;
-height:22px;
-
-background:var(--whatsapp);
-
-border-radius:50%;
-
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
-
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* check */
+.servico-beneficios li::after {
+    content: "✔";
+    position: absolute;
 
-.servico-beneficios li::after{
+    left: 6px;
+    top: 1px;
 
-content:"✔";
-
-position:absolute;
-left:6px;
-top:1px;
-
-color:#fff;
-
-font-size:13px;
-font-weight:bold;
-
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
 }
 
-/* pequeno efeito hover */
-
-.servico-beneficios li:hover{
-
-transform:translateX(6px);
-
+.servico-beneficios li:hover {
+    transform: translateX(6px);
 }
 
 
 /* ================= DESTAQUE ================= */
 
-.servico-highlight{
-
-font-weight:700;
-
-color:var(--preto);
-
-margin-bottom:22px;
-
-font-size:18px;
-
+.servico-highlight {
+    font-weight: 700;
+    color: var(--preto);
+    margin-bottom: 22px;
+    font-size: 18px;
 }
 
 
 /* ================= BOTÃO ================= */
 
-.btn-servico{
+.btn-servico {
+    display: inline-block;
 
-display:inline-block;
+    background: var(--whatsapp);
+    color: var(--texto-claro);
 
-background:var(--whatsapp);
+    padding: 14px 32px;
+    border-radius: 8px;
 
-color: var(--texto-claro);
+    text-decoration: none;
+    font-weight: 600;
 
-padding:14px 32px;  
-
-border-radius:8px;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:0.25s;
-
+    transition: 0.25s;
 }
 
-.btn-servico:hover{
-
-background:var(--whatsapp-hover);
-
-transform:translateY(-2px);
-
+.btn-servico:hover {
+    background: var(--whatsapp-hover);
+    transform: translateY(-2px);
 }
 
 
 /* ================= IMAGENS ================= */
 
-.servico-imagens{
+.servico-imagens {
+    flex: 1;
+    min-width: 300px;
 
-flex:1;
-
-min-width:280px;
-
-position:relative;
-
+    display: flex;
+    justify-content: center;
 }
 
-.img-principal{
+.img-principal {
+    width: 100%;
+    max-width: 420px;
 
-width:100%;
+    height: 520px;
+    object-fit: cover;
 
-border-radius:12px;
+    border-radius: 12px;
 
-transition:0.35s;
-
+    transition: 0.35s;
 }
 
-.img-principal:hover{
-
-transform:scale(1.03);
-
+.img-principal:hover {
+    transform: scale(1.03);
 }
 
-.img-secundaria{
 
-position:absolute;
+/* ================= SETAS ================= */
 
-bottom:-25px;
+.nav-servico {
+    position: absolute;
+    inset: 0; /* ocupa todo o bloco */
+    pointer-events: none;
+}
 
-right:-25px;
+.seta {
+    position: absolute;
 
-width:55%;
+    left: 50%;
+    transform: translateX(-50%);
 
-border-radius:10px;
+    width: 50px;
+    height: 50px;
 
-box-shadow:0 12px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    border-radius: 50%;
+
+    background: #0f2a44;
+    color: #fff;
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+    z-index: 50;
+
+    pointer-events: auto;
+
+    transition: 0.3s;
+}
+
+.seta:hover {
+    transform: translateX(-50%) translateY(-5px) scale(1.08);
+    background: var(--whatsapp);
+}
+
+.seta-down {
+    bottom: 40px;
+}
+
+.seta-up {
+    top: 40px;
 }
 
 
 /* ================= ALTERNÂNCIA ================= */
 
-.invertido .servico-container{
-
-flex-direction:row-reverse;
-
+.invertido .servico-container {
+    flex-direction: row-reverse;
 }
 
 
 /* ================= RESPONSIVO ================= */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-.servico-container{
+    .servico-bloco {
+        padding: 80px 20px;
+        min-height: auto; /* 🔥 importante */
+    }
 
-flex-direction:column;
+    .servico-container {
+        flex-direction: column;
+        gap: 25px;
+    }
 
-gap:25px;
-
-}
-
-.img-secundaria{
-
-position:static;
-
-width:100%;
-
-margin-top:15px;
-
-}
+    .img-principal {
+        max-width: 100%;
+        height: 300px;
+    }
 
 }
