@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!slides.length || !slidesContainer || !carousel) return;
 
-    const AUTOPLAY_DELAY = 5000;
+    const AUTOPLAY_DELAY = 4000;
     let currentIndex = 0;
     let autoplay = null;
     let isTransitioning = false;

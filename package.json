@@ -1,26 +1,15 @@
 {
   "name": "site",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Gabrielrcintra/cintraengenharia.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Gabrielrcintra/cintraengenharia/issues"
-  },
-  "homepage": "https://github.com/Gabrielrcintra/cintraengenharia#readme",
   "devDependencies": {
     "gulp": "^5.0.1",
     "gulp-imagemin": "^9.2.0",
-    "imagemin-webp": "^8.0.0"
+    "gulp-webp": "^5.1.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0"
   }
 }
