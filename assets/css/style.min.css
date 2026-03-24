@@ -30,3 +30,31 @@
     flex-direction:column-reverse;
     }
 }
+
+@media(max-width:768px){
+
+.nav-links{
+    left:0 !important;
+    right:auto !important;
+    padding:24px 20px !important;
+}
+
+.nav-links a{
+    width:100%;
+    text-align:center;
+}
+
+.navbar{
+    padding:0 20px !important;
+}
+
+}
+
+@media(max-width:768px){
+
+.nav-links{
+    padding-left:20px;
+    padding-right:20px;
+}
+
+}

@@ -3,11 +3,34 @@
     // ── MENU MOBILE
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
 
     if (menuToggle && navLinks) {
+
+        // abrir / fechar botão
         menuToggle.addEventListener('click', () => {
             const isActive = navLinks.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isActive);
+        });
+
+        // fechar ao clicar em link
+        navItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', false);
+            });
+        });
+
+        // fechar ao clicar fora
+        document.addEventListener('click', (e) => {
+            const isClickInside =
+                navLinks.contains(e.target) ||
+                menuToggle.contains(e.target);
+
+            if (!isClickInside) {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', false);
+            }
         });
     }
 
@@ -42,7 +65,6 @@
             dots[currentIndex].classList.add("active");
         }
 
-        // Acessibilidade
         dots.forEach((dot, i) => {
             dot.setAttribute("aria-selected", i === currentIndex);
         });
@@ -65,7 +87,6 @@
             slidesContainer.style.transition = "none";
             slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-            // força repaint
             slidesContainer.offsetHeight;
 
             setTimeout(() => {
