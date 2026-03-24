@@ -11,11 +11,20 @@
     <meta name="description"
         content="Cintra Engenharia: emissão de ART, diagnósticos técnicos e memorial descritivo para usucapião com engenheiro civil experiente.">
 
-    <link rel="preload" href="./assets/imagens/webp/op2.webp" as="image" type="image/webp">
+    <link rel="preload" as="image" href="./assets/imagens/carrosel/op-2/op2-1280.webp" imagesrcset="
+            ./assets/imagens/carrosel/op-2/op2-480.webp 480w,
+            ./assets/imagens/carrosel/op-2/op2-768.webp 768w,
+            ./assets/imagens/carrosel/op-2/op2-1280.webp 1280w" imagesizes="100vw">
 
     <link rel="stylesheet" href="./assets/css/style.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
 
 </head>
 
@@ -26,7 +35,8 @@
     <header class="navbar">
 
         <a href="#home" class="brand">
-            <img src="./assets/imagens/logo header.webp" width="300" height="120" alt="Logo Cintra Engenharia">
+            <img src="./assets/imagens/logo header.webp" width="300" height="120" alt="Logo Cintra Engenharia"
+                loading="eager" fetchpriority="high" decoding="async">
         </a>
 
         <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
@@ -54,30 +64,32 @@
 
                 <div class="slide">
                     <img src="./assets/imagens/carrosel/op-2/op2-1920.webp" srcset="
-                        ./assets/imagens/carrosel/op-2/op2-480.webp 480w,
-                        ./assets/imagens/carrosel/op-2/op2-768.webp 768w,
-                        ./assets/imagens/carrosel/op-2/op2-1280.webp 1280w,
-                        ./assets/imagens/carrosel/op-2/op2-1920.webp 1920w
-                    " sizes="100vw" width="1920" height="1080" loading="eager" fetchpriority="high"
-                        alt="Engenheiro civil analisando reforma">
+                    ./assets/imagens/carrosel/op-2/op2-480.webp 480w,
+                    ./assets/imagens/carrosel/op-2/op2-768.webp 768w,
+                    ./assets/imagens/carrosel/op-2/op2-1280.webp 1280w,
+                    ./assets/imagens/carrosel/op-2/op2-1920.webp 1920w
+                " sizes="(max-width: 768px) 100vw, 1280px" width="1920" height="1080" loading="eager"
+                        fetchpriority="high" decoding="async" alt="Engenheiro civil analisando reforma">
                 </div>
 
                 <div class="slide">
                     <img src="./assets/imagens/carrosel/op-1/op-1-1920.webp" srcset="
-                        ./assets/imagens/carrosel/op-1/op-1-480.webp 480w,
-                        ./assets/imagens/carrosel/op-1/op-1-768.webp 768w,
-                        ./assets/imagens/carrosel/op-1/op1-1280.webp 1280w,
-                        ./assets/imagens/carrosel/op-1/op-1-1920.webp 1920w
-                    " sizes="100vw" width="1920" height="1080" loading="lazy" alt="Obra residencial em andamento">
+                    ./assets/imagens/carrosel/op-1/op-1-480.webp 480w,
+                    ./assets/imagens/carrosel/op-1/op-1-768.webp 768w,
+                    ./assets/imagens/carrosel/op-1/op1-1280.webp 1280w,
+                    ./assets/imagens/carrosel/op-1/op-1-1920.webp 1920w
+                " sizes="(max-width: 768px) 100vw, 1280px" width="1920" height="1080" loading="lazy" decoding="async"
+                        alt="Obra residencial em andamento">
                 </div>
 
                 <div class="slide">
                     <img src="./assets/imagens/carrosel/exp/exp-01-1920.webp" srcset="
-                        ./assets/imagens/carrosel/exp/exp-01-480.webp 480w,
-                        ./assets/imagens/carrosel/exp/exp-01-768.webp 768w,
-                        ./assets/imagens/carrosel/exp/exp-01-1280.webp 1280w,
-                        ./assets/imagens/carrosel/exp/exp-01-1920.webp 1920w
-                    " sizes="100vw" width="1920" height="1080" loading="lazy" alt="Inspeção técnica em obra">
+                    ./assets/imagens/carrosel/exp/exp-01-480.webp 480w,
+                    ./assets/imagens/carrosel/exp/exp-01-768.webp 768w,
+                    ./assets/imagens/carrosel/exp/exp-01-1280.webp 1280w,
+                    ./assets/imagens/carrosel/exp/exp-01-1920.webp 1920w
+                " sizes="(max-width: 768px) 100vw, 1280px" width="1920" height="1080" loading="lazy" decoding="async"
+                        alt="Inspeção técnica em obra">
                 </div>
 
             </div>
