@@ -1,11 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
+
     // ── MENU MOBILE
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+            const isActive = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive);
         });
     }
 
@@ -20,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!slides.length || !slidesContainer || !carousel) return;
 
     const AUTOPLAY_DELAY = 4000;
+    const TRANSITION_TIME = 800;
+
     let currentIndex = 0;
     let autoplay = null;
     let isTransitioning = false;
@@ -30,8 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         slides.forEach(s => s.classList.remove("active"));
         dots.forEach(d => d.classList.remove("active"));
 
-        slides[currentIndex].classList.add("active");
-        dots[currentIndex].classList.add("active");
+        if (slides[currentIndex]) {
+            slides[currentIndex].classList.add("active");
+        }
+
+        if (dots[currentIndex]) {
+            dots[currentIndex].classList.add("active");
+        }
 
         // Acessibilidade
         dots.forEach((dot, i) => {
@@ -41,42 +50,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function goToSlide(targetIndex) {
         if (isTransitioning) return;
+
         isTransitioning = true;
 
-        // Normaliza o índice (loop infinito)
         const newIndex = (targetIndex + totalSlides) % totalSlides;
 
-        // Detecta se é uma transição de "volta ao início/fim"
-        const isJumping = 
+        const isJumping =
             (newIndex === 0 && currentIndex === totalSlides - 1) ||
             (newIndex === totalSlides - 1 && currentIndex === 0);
 
         currentIndex = newIndex;
 
         if (isJumping) {
-            // Remove transição → move instantaneamente → restaura transição
             slidesContainer.style.transition = "none";
             slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-            // Força o browser a aplicar a mudança sem transição
-            void slidesContainer.offsetWidth;
+            // força repaint
+            slidesContainer.offsetHeight;
 
-            // Volta a transição normal para os próximos slides
             setTimeout(() => {
                 slidesContainer.style.transition = "transform 0.8s ease-in-out";
             }, 20);
         } else {
-            // Transição normal
             slidesContainer.style.transition = "transform 0.8s ease-in-out";
             slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
         updateIndicators();
 
-        // Libera o controle depois da animação
         setTimeout(() => {
             isTransitioning = false;
-        }, 850);
+        }, TRANSITION_TIME);
     }
 
     function nextSlide() {
@@ -87,11 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
         goToSlide(currentIndex - 1);
     }
 
-    // Eventos dos botões
-    if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); resetAutoplay(); });
-    if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); resetAutoplay(); });
+    // ── BOTÕES
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+            resetAutoplay();
+        });
+    }
 
-    // Dots (clique + teclado)
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+            resetAutoplay();
+        });
+    }
+
+    // ── DOTS
     dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
             goToSlide(index);
@@ -107,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Autoplay
+    // ── AUTOPLAY
     function startAutoplay() {
         if (!autoplay) {
             autoplay = setInterval(nextSlide, AUTOPLAY_DELAY);
@@ -126,35 +141,32 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoplay();
     }
 
-    // Pausar no hover
-    if (carousel) {
-        carousel.addEventListener("mouseenter", stopAutoplay);
-        carousel.addEventListener("mouseleave", startAutoplay);
-    }
+    // ── PAUSA NO HOVER
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
 
-    // Suporte a swipe (toque) no mobile
+    // ── SWIPE MOBILE
     let touchStartX = 0;
     let touchEndX = 0;
 
-    if (carousel) {
-        carousel.addEventListener("touchstart", e => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
+    carousel.addEventListener("touchstart", e => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
 
-        carousel.addEventListener("touchend", e => {
-            touchEndX = e.changedTouches[0].clientX;
-            const diff = touchStartX - touchEndX;
+    carousel.addEventListener("touchend", e => {
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
 
-            if (Math.abs(diff) > 60) {
-                if (diff > 0) nextSlide();
-                else prevSlide();
-                resetAutoplay();
-            }
-        }, { passive: true });
-    }
+        if (Math.abs(diff) > 60) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+            resetAutoplay();
+        }
+    }, { passive: true });
 
-    // Inicializa
+    // ── INICIALIZA
     slidesContainer.style.transition = "transform 0.8s ease-in-out";
     goToSlide(0);
     startAutoplay();
-});
+
+})();
