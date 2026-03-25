@@ -191,3 +191,15 @@
     startAutoplay();
 
 })();
+
+// ── TRACK CLIQUE WHATSAPP
+document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+            gtag('event', 'click_whatsapp', {
+                event_category: 'engajamento',
+                event_label: 'botao_whatsapp'
+            });
+        }
+    });
+});
