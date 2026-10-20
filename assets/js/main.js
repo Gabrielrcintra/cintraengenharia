@@ -206,7 +206,7 @@ document.addEventListener('click', function (e) {
     });
 
     var conversao = {
-        'send_to': 'AW-18440633107/4d4dCKeN-aIdEJP2ltlE'
+        'send_to': 'AW-18440633107/MI2HCJXI8KMdEJP2ltlE'
     };
 
     // Ctrl/Cmd/Shift + clique ou link em nova aba: só registra, não interfere na navegação
