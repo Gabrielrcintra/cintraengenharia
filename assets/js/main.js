@@ -192,14 +192,44 @@
 
 })();
 
-// ── TRACK CLIQUE WHATSAPP
-document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-    link.addEventListener('click', () => {
-        if (typeof gtag === 'function') {
-            gtag('event', 'click_whatsapp', {
-                event_category: 'engajamento',
-                event_label: 'botao_whatsapp'
-            });
-        }
+// ── TRACK CLIQUE WHATSAPP + CONVERSÃO GOOGLE ADS
+// Um único listener para todos os botões de WhatsApp do site.
+// Envia o evento de engajamento e a conversão do Google Ads, e só então abre o WhatsApp.
+document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    if (!link || typeof gtag !== 'function') return;
+
+    // evento de engajamento (já existia no site)
+    gtag('event', 'click_whatsapp', {
+        event_category: 'engajamento',
+        event_label: 'botao_whatsapp'
     });
+
+    var conversao = {
+        'send_to': 'AW-18440633107/4d4dCKeN-aIdEJP2ltlE'
+    };
+
+    // Ctrl/Cmd/Shift + clique ou link em nova aba: só registra, não interfere na navegação
+    if (e.ctrlKey || e.metaKey || e.shiftKey || link.target === '_blank') {
+        gtag('event', 'conversion', conversao);
+        return;
+    }
+
+    // clique normal: espera o envio da conversão antes de sair da página
+    e.preventDefault();
+
+    var url = link.href;
+    var feito = false;
+
+    function ir() {
+        if (feito) return;
+        feito = true;
+        window.location.href = url;
+    }
+
+    conversao.event_callback = ir;
+    gtag('event', 'conversion', conversao);
+
+    // garantia caso o Google demore a responder
+    setTimeout(ir, 1000);
 });
