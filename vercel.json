@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/laudo-patologias",
+      "destination": "/patologias-construtivas",
+      "permanent": true
+    }
+  ]
 }
