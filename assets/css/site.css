@@ -372,7 +372,7 @@ img { height: auto; }
 .wa-float.is-hidden { opacity: 0; transform: translateY(16px); pointer-events: none; }
 @media (max-width: 900px) {
     .hero-img { display: none; }                 /* foto decorativa ocupava uma tela inteira antes do conteúdo */
-    .split > .info-box { order: -1; }            /* "trabalhamos com seu advogado" antes da lista técnica */
+    .split > .info-box.info-first { order: -1; } /* "trabalhamos com seu advogado" antes da lista técnica */
 }
 @media (max-width: 900px) {
     .footer li { padding: 0; }
