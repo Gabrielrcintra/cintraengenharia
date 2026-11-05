@@ -56,8 +56,6 @@ document.addEventListener('click', function (e) {
     if (next) next.addEventListener('click', function () { go(i + 1); restart(); });
     dots.forEach(function (d, n) { d.addEventListener('click', function () { go(n); restart(); }); });
 
-    car.addEventListener('mouseenter', stop);
-    car.addEventListener('mouseleave', start);
 
     var x0 = 0;
     car.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
