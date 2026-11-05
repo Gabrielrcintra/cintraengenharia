@@ -66,3 +66,11 @@ document.addEventListener('click', function (e) {
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
 })();
+
+// Botão flutuante do WhatsApp só aparece depois do topo, onde já existe o botão principal
+(function () {
+    var btn = document.querySelector('.wa-float');
+    var topo = document.querySelector('.hero, .carousel');
+    if (!btn || !topo || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (e) { btn.classList.toggle('is-hidden', e[0].isIntersecting); }, { threshold: 0.25 }).observe(topo);
+})();
