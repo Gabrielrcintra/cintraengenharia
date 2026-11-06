@@ -378,3 +378,16 @@ img { height: auto; }
     .footer li { padding: 0; }
     .footer li a { display: inline-block; padding: 10px 0; }   /* área de toque maior no celular */
 }
+
+/* ---------- Categorias dentro de uma página de serviço ---------- */
+.cats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.cat { border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: var(--radius); padding: 28px; background: var(--white); }
+.cat h3 { font-size: 21px; color: var(--navy); margin-bottom: 6px; }
+.cat p { color: var(--muted); margin-bottom: 14px; }
+
+/* ---------- Grupo "Projetos" na home: largura total, itens em duas colunas ---------- */
+.svc-group-wide { grid-column: 1 / -1; }
+.svc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+@media (max-width: 900px) {
+    .cats, .svc-pair { grid-template-columns: 1fr; }
+}
