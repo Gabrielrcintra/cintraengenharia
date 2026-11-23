@@ -32,6 +32,17 @@ document.addEventListener('click', function (e) {
     }
 });
 
+// ================= CLIQUE EM "LIGAR" (GA4) =================
+document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"]');
+    if (!link || typeof gtag !== 'function') return;
+    gtag('event', 'click_telefone', {
+        event_category: 'engajamento',
+        event_label: location.pathname,
+        transport_type: 'beacon'
+    });
+});
+
 // ================= CARROSSEL (home) =================
 (function () {
     var car = document.getElementById('carousel');
