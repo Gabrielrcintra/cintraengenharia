@@ -404,7 +404,8 @@ img { height: auto; }
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: #8A97A3; }
 .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--white); outline-offset: 1px; }
-.contact-form button { justify-content: center; font-family: inherit; }
+.contact-form button { justify-content: center; font-family: inherit; background: var(--wa); color: var(--white); }
+.contact-form button:hover { background: #178f49; }
 .contact-form button[disabled] { opacity: .6; cursor: wait; }
 .contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-status { min-height: 1.4em; text-align: center; font-size: 15px; margin: 0 !important; }
