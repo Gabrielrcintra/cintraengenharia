@@ -391,3 +391,21 @@ img { height: auto; }
 @media (max-width: 900px) {
     .cats, .svc-pair { grid-template-columns: 1fr; }
 }
+
+/* ---------- Formulário de contato (seção CTA) ---------- */
+.contact-form-wrap { max-width: 640px; margin: 40px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.18); text-align: left; }
+.contact-form-title { text-align: center; margin-bottom: 20px !important; }
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-form label { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: rgba(255,255,255,.85); }
+.contact-form .full { grid-column: 1 / -1; }
+.contact-form input, .contact-form textarea {
+    font: inherit; font-size: 16px; padding: 12px 14px; border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.06); color: var(--white);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,.45); }
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--white); outline-offset: 1px; }
+.contact-form button { justify-content: center; font-family: inherit; }
+.contact-form button[disabled] { opacity: .6; cursor: wait; }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-status { min-height: 1.4em; text-align: center; font-size: 15px; margin: 0 !important; }
+@media (max-width: 640px) { .contact-form { grid-template-columns: 1fr; } }

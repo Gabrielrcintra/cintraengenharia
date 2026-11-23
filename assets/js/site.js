@@ -43,6 +43,51 @@ document.addEventListener('click', function (e) {
     });
 });
 
+// ================= FORMULÁRIO DE CONTATO =================
+// Envia para o e-mail da Cintra pelo FormSubmit (sem servidor próprio).
+(function () {
+    var ENDPOINT = 'https://formsubmit.co/ajax/contatocintraengenharia@gmail.com';
+    document.querySelectorAll('.contact-form').forEach(function (form) {
+        var status = form.querySelector('.form-status');
+        var btn = form.querySelector('button[type="submit"]');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var nome = form.nome.value.trim();
+            var tel = form.telefone.value.replace(/\D/g, '');
+            if (!nome || tel.length < 10) {
+                status.textContent = 'Preencha seu nome e um telefone com DDD.';
+                return;
+            }
+            if (form._honey.value) return;
+            btn.disabled = true;
+            status.textContent = 'Enviando...';
+            var dados = {
+                _subject: 'Novo contato pelo site: ' + form.servico.value,
+                _template: 'table',
+                Servico: form.servico.value,
+                Nome: nome,
+                Telefone: form.telefone.value.trim(),
+                Mensagem: form.mensagem.value.trim() || '(sem mensagem)',
+                Pagina: location.pathname
+            };
+            fetch(ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(dados)
+            }).then(function (r) { return r.json(); }).then(function (r) {
+                if (String(r.success) !== 'true') throw new Error(r.message || 'erro');
+                form.reset();
+                status.textContent = 'Recebemos seus dados. O engenheiro vai entrar em contato em breve.';
+                if (typeof gtag === 'function') {
+                    gtag('event', 'envio_formulario', { event_category: 'engajamento', event_label: location.pathname });
+                }
+            }).catch(function () {
+                status.textContent = 'Não foi possível enviar agora. Chame no WhatsApp ou ligue (11) 96249-0692.';
+            }).then(function () { btn.disabled = false; });
+        });
+    });
+})();
+
 // ================= CARROSSEL (home) =================
 (function () {
     var car = document.getElementById('carousel');
